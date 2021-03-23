@@ -1,0 +1,30 @@
+# importing the required libraries
+import numpy as np
+from sklearn.model_selection import KFold
+
+# create a sample dataset
+X = np.array([[1, 2, 3, 2],
+             [3, 4, 1, 1],
+             [1, 2, 1, 1],
+             [3, 4, 1, 1]])
+
+y = np.array([1, 2, 3, 4])
+
+# create the object of the KFold
+kf = KFold(n_splits=2)
+
+print(kf)
+KFold(n_splits=2, random_state=None, shuffle=False)
+for train_index, test_index in kf.split(X):
+  print("TRAIN:", train_index, "TEST:", test_index)    
+  X_train, X_test = X[train_index], X[test_index]
+  y_train, y_test = y[train_index], y[test_index]
+
+
+kf = KFold(n_splits=3)
+print(kf)
+KFold(n_splits=3, random_state=None, shuffle=False)
+for train_index, test_index in kf.split(X):
+  print("TRAIN:", train_index, "TEST:", test_index)    
+  X_train, X_test = X[train_index], X[test_index]
+  y_train, y_test = y[train_index], y[test_index]
